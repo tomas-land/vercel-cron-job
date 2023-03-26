@@ -1,22 +1,21 @@
 import styles from "./page.module.css";
 import prisma from "../lib/prisma";
 
-const getVisits = async () => {
+export async function GET(request) {
   const visits = await prisma.visits.findMany();
-  return JSON.stringify(visits);
-};
+  return new Response(JSON.stringify({visits}), {
+    headers: {
+      "Content-Type": "application/json",
+      },
+      });
+}
+
 
 export default function Home() {
-  const visits = getVisits();
-  console.log(visits);
+
   return (
     <main className={styles.main}>
-      {visits.map((visit) => (
-        <div key={visit.id}>
-          <h1>{visit.name}</h1>
-          ff
-        </div>
-      ))}
+ff
     </main>
   );
 }
