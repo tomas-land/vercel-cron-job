@@ -14,6 +14,7 @@ export default function Home() {
       {visits.map((visit) => (
         <div key={visit.id}>
           <h1>{visit.name}</h1>
+          ff
         </div>
       ))}
     </main>
